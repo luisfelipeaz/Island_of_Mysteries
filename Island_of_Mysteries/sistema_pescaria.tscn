@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq8eeuketharq"]
+
+[ext_resource type="Script" path="res://sistema_pescaria.gd" id="1_gsa21"]
+[ext_resource type="Texture2D" uid="uid://puolnxfn5x5q" path="res://barra .png" id="2_7pp35"]
+[ext_resource type="Texture2D" uid="uid://260q2dvmal6h" path="res://peixe.png" id="3_3mtpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh05d"]
+size = Vector2(5, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ert70"]
+size = Vector2(24.6152, 21.3334)
+
+[sub_resource type="Animation" id="Animation_lhu0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("peixe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(107, 253)]
+}
+
+[sub_resource type="Animation" id="Animation_m8ap4"]
+resource_name = "pescando"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("peixe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(107, 253), Vector2(19, 253), Vector2(106, 253)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vihrq"]
+_data = {
+"RESET": SubResource("Animation_lhu0j"),
+"pescando": SubResource("Animation_m8ap4")
+}
+
+[node name="sistema_pescaria" type="Area2D"]
+script = ExtResource("1_gsa21")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(98.5, 254.5)
+shape = SubResource("RectangleShape2D_yh05d")
+metadata/_edit_group_ = true
+
+[node name="barra" type="Sprite2D" parent="."]
+position = Vector2(99, 255)
+scale = Vector2(0.4, 0.388)
+texture = ExtResource("2_7pp35")
+
+[node name="peixe" type="Area2D" parent="."]
+position = Vector2(107, 253)
+scale = Vector2(0.406251, 0.28125)
+
+[node name="peixe" type="Sprite2D" parent="peixe"]
+position = Vector2(88.6152, 2.71797e-05)
+scale = Vector2(1.92307, 1.88889)
+texture = ExtResource("3_3mtpp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="peixe"]
+position = Vector2(88.6152, 1.33514e-05)
+shape = SubResource("RectangleShape2D_ert70")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vihrq")
+}
+autoplay = "pescando"
+
+[connection signal="area_entered" from="peixe" to="." method="_on_peixe_area_entered"]
+[connection signal="area_exited" from="peixe" to="." method="_on_peixe_area_exited"]

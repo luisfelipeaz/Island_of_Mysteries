@@ -1,0 +1,396 @@
+[gd_scene load_steps=42 format=3 uid="uid://b6q8hhhcfod3p"]
+
+[ext_resource type="Script" path="res://sistema_de_pescaria.gd" id="1_3hgpn"]
+[ext_resource type="PackedScene" uid="uid://db8tj6nxpwgvs" path="res://cenario_grama.tscn" id="1_b6hob"]
+[ext_resource type="PackedScene" uid="uid://cfcglwp72th05" path="res://personagem_principal.tscn" id="2_y2xak"]
+[ext_resource type="Texture2D" uid="uid://q6qlvviub5ts" path="res://Crop_Spritesheet.png" id="3_3u8ip"]
+[ext_resource type="Texture2D" uid="uid://dhyaqqxxop3yy" path="res://blue mushroom sheet.png" id="4_r88aw"]
+[ext_resource type="Texture2D" uid="uid://b2jobpjwmexyk" path="res://Idle.png" id="5_a2t36"]
+[ext_resource type="Texture2D" uid="uid://cfxtqb3nfnfut" path="res://summer tilemap.png" id="5_di4hl"]
+[ext_resource type="Script" path="res://milho.gd" id="7_mq0ec"]
+[ext_resource type="PackedScene" uid="uid://d2a7dvs0m2xy7" path="res://galinha.tscn" id="8_eg0kx"]
+[ext_resource type="PackedScene" uid="uid://q864trribqyn" path="res://ovo.tscn" id="9_mhewy"]
+[ext_resource type="Script" path="res://ClicarPescaria.gd" id="12_tivse"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbn5u"]
+atlas = ExtResource("4_r88aw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1qur"]
+atlas = ExtResource("4_r88aw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg52c"]
+atlas = ExtResource("4_r88aw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dt34"]
+atlas = ExtResource("4_r88aw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oegqe"]
+atlas = ExtResource("4_r88aw")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0rea"]
+atlas = ExtResource("4_r88aw")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6ubu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbn5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1qur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg52c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dt34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oegqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0rea")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7jnfv"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf4ct"]
+atlas = ExtResource("5_a2t36")
+region = Rect2(0, 72, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gdyp"]
+atlas = ExtResource("5_a2t36")
+region = Rect2(32, 72, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lppyq"]
+atlas = ExtResource("5_a2t36")
+region = Rect2(64, 72, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6m1e"]
+atlas = ExtResource("5_a2t36")
+region = Rect2(96, 72, 32, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8ar6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf4ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gdyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lppyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6m1e")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wduk0"]
+size = Vector2(12, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwi1n"]
+atlas = ExtResource("5_di4hl")
+region = Rect2(128, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rkv6"]
+atlas = ExtResource("5_di4hl")
+region = Rect2(144, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbkom"]
+atlas = ExtResource("5_di4hl")
+region = Rect2(128, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxy15"]
+atlas = ExtResource("5_di4hl")
+region = Rect2(128, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gl5ex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwi1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rkv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbkom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxy15")
+}],
+"loop": true,
+"name": &"agua",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poe87"]
+atlas = ExtResource("3_3u8ip")
+region = Rect2(80, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki12h"]
+atlas = ExtResource("3_3u8ip")
+region = Rect2(64, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehe2w"]
+atlas = ExtResource("3_3u8ip")
+region = Rect2(48, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmgro"]
+atlas = ExtResource("3_3u8ip")
+region = Rect2(32, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwrbo"]
+atlas = ExtResource("3_3u8ip")
+region = Rect2(16, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33iuw"]
+atlas = ExtResource("3_3u8ip")
+region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mxlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poe87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki12h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehe2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmgro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwrbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33iuw")
+}],
+"loop": true,
+"name": &"milho",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yoth"]
+size = Vector2(12, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewdjf"]
+size = Vector2(17, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi3p3"]
+size = Vector2(264, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlno0"]
+size = Vector2(264, 74.5)
+
+[node name="Principal" type="Node2D"]
+position = Vector2(133, 43)
+script = ExtResource("1_3hgpn")
+metadata/_edit_horizontal_guides_ = [47.0]
+
+[node name="Cenario_grama" parent="." instance=ExtResource("1_b6hob")]
+
+[node name="Personagem principal" parent="." instance=ExtResource("2_y2xak")]
+z_index = 1
+texture_filter = 1
+position = Vector2(31, 131)
+
+[node name="Camera" type="Camera2D" parent="Personagem principal"]
+position = Vector2(162, 62)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Trufle" type="Area2D" parent="."]
+texture_filter = 1
+position = Vector2(86, 80)
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Trufle"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_n6ubu")
+animation = &"parado"
+autoplay = "parado"
+frame_progress = 0.819666
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trufle"]
+shape = SubResource("CircleShape2D_7jnfv")
+
+[node name="dialogo_trufle" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 30.0
+offset_right = 185.0
+offset_bottom = 53.0
+
+[node name="Jorge o fazendeiro" type="Area2D" parent="."]
+position = Vector2(5, 159)
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jorge o fazendeiro"]
+texture_filter = 1
+position = Vector2(1, 2)
+scale = Vector2(1, 1.375)
+sprite_frames = SubResource("SpriteFrames_t8ar6")
+animation = &"parado"
+frame_progress = 0.328516
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jorge o fazendeiro"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_wduk0")
+
+[node name="dialogo_jorge" type="Label" parent="."]
+offset_left = -16.0
+offset_top = 117.0
+offset_right = 73.0
+offset_bottom = 140.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(149, 375)
+sprite_frames = SubResource("SpriteFrames_gl5ex")
+animation = &"agua"
+frame_progress = 0.425793
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(341, 301)
+sprite_frames = SubResource("SpriteFrames_gl5ex")
+animation = &"agua"
+frame_progress = 0.425793
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(251, 334)
+sprite_frames = SubResource("SpriteFrames_gl5ex")
+animation = &"agua"
+
+[node name="milho" type="Area2D" parent="."]
+position = Vector2(153, 136)
+script = ExtResource("7_mq0ec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="milho"]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_2mxlv")
+animation = &"milho"
+frame_progress = 0.81336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="milho"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_2yoth")
+
+[node name="milho2" type="Area2D" parent="."]
+position = Vector2(170, 136)
+script = ExtResource("7_mq0ec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="milho2"]
+position = Vector2(3, 0)
+sprite_frames = SubResource("SpriteFrames_2mxlv")
+animation = &"milho"
+frame_progress = 0.81336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="milho2"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_2yoth")
+
+[node name="milho3" type="Area2D" parent="."]
+position = Vector2(189, 137)
+script = ExtResource("7_mq0ec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="milho3"]
+position = Vector2(3, 0)
+sprite_frames = SubResource("SpriteFrames_2mxlv")
+animation = &"milho"
+frame_progress = 0.81336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="milho3"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_2yoth")
+
+[node name="milho4" type="Area2D" parent="."]
+position = Vector2(208, 136)
+script = ExtResource("7_mq0ec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="milho4"]
+position = Vector2(2, 1)
+sprite_frames = SubResource("SpriteFrames_2mxlv")
+animation = &"milho"
+frame_progress = 0.81336
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="milho4"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_2yoth")
+
+[node name="porta" type="Area2D" parent="."]
+position = Vector2(36, 102)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="porta"]
+position = Vector2(-17, 0)
+shape = SubResource("RectangleShape2D_ewdjf")
+
+[node name="galinha" parent="." instance=ExtResource("8_eg0kx")]
+texture_filter = 1
+position = Vector2(177, 194)
+
+[node name="galinha2" parent="." instance=ExtResource("8_eg0kx")]
+texture_filter = 1
+position = Vector2(232, 201)
+
+[node name="ovo" parent="." instance=ExtResource("9_mhewy")]
+texture_filter = 1
+position = Vector2(230, 189)
+monitorable = false
+
+[node name="dialogo_ovo" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 147.0
+offset_right = 313.0
+offset_bottom = 170.0
+
+[node name="pescaria" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource("12_tivse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pescaria"]
+position = Vector2(150, 316.5)
+shape = SubResource("RectangleShape2D_hi3p3")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="pescaria"]
+position = Vector2(-1, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pescaria/StaticBody2D"]
+position = Vector2(152, 318.25)
+shape = SubResource("RectangleShape2D_rlno0")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="Trufle" to="Personagem principal" method="_on_trufle_body_entered"]
+[connection signal="body_exited" from="Trufle" to="Personagem principal" method="_on_trufle_body_exited"]
+[connection signal="body_entered" from="Jorge o fazendeiro" to="Personagem principal" method="_on_jorge_o_fazendeiro_body_entered"]
+[connection signal="body_exited" from="Jorge o fazendeiro" to="Personagem principal" method="_on_jorge_o_fazendeiro_body_exited"]
+[connection signal="body_entered" from="milho2" to="milho2" method="_on_body_entered"]
+[connection signal="body_entered" from="milho3" to="milho3" method="_on_body_entered"]
+[connection signal="body_entered" from="milho4" to="milho4" method="_on_body_entered"]
+[connection signal="body_entered" from="porta" to="Personagem principal" method="_on_porta_body_entered"]
+[connection signal="body_entered" from="ovo" to="Personagem principal" method="_on_ovo_body_entered"]
+[connection signal="body_exited" from="ovo" to="Personagem principal" method="_on_ovo_body_exited"]
+[connection signal="body_entered" from="pescaria" to="Personagem principal" method="_on_pescaria_body_entered"]
+[connection signal="body_exited" from="pescaria" to="Personagem principal" method="_on_pescaria_body_exited"]
+[connection signal="mouse_entered" from="pescaria" to="." method="_on_pescaria_mouse_entered"]
+[connection signal="mouse_exited" from="pescaria" to="." method="_on_pescaria_mouse_exited"]
